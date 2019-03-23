@@ -6,9 +6,28 @@
 </head>
 <body>
   <script>
-    var width = 100;
-    let heigth = 300;
-    const key = 'abc123';
+    const key = 'abc123';       // const объявляется только 1 раз
+    let points = 50;            // let объявляется только 1 раз
+    let winner = false;
+
+    // key = '123abc';          // нельзя внести изменения
+    points = 50;                // возможно внести изменения
+
+    if (points > 40) {
+      let winner = true;        // block scope (другая переменная)-> true
+    }
+    console.log(winner)         // -> false
+
+    const person = {            // защита переменной от изменения типа переменной или его значения 
+      name: 'Rafael',
+      age: 34,
+    }
+    person.age = 35;            // -> 35
+    Object.freeze(person);      // -> заморозка состояния объекта
+    Object.isFrozen(person);    // -> true
+    person.age = 35;            // -> 34
+
+
   </script>
 </body>
 </html>
