@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+  <script>
+    // var case - 1
+    var width = 100;
+    console.log(width);
+    var width = 200;            //допускается объявлять переменную дважды
+    console.log(width);
+    // var scope
+    function setWidth(){
+      var width = 300;          //function scope
+      console.log(width);
+    };
+    setWidth();
+    console.log(width);
+    console.log('\n');
+
+    // var case - 2  
+    // var width2;
+    function setWidth2(){
+      width2 = 500;             //global scope
+      console.log(width2);
+    };
+    setWidth2();
+    console.log(width2);
+    console.log('\n');
+
+    // var case - 3
+    var age = 100;
+    if(age > 12) {
+      var dogYears = age * 7;   //global scope, no block scoping
+      // let dogYears = age * 7;   //block scope ({})
+      console.log(`You are ${dogYears} dog years old!`)
+    }
+    console.log(dogYears);
+  </script>
+</body>
+</html>
