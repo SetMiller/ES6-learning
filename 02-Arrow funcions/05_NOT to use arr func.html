@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Default arguments</title>
+</head>
+
+<body>
+  <style>
+    button {
+      font-size: 100px;
+    }
+
+    .on {
+      background: #ffc600;
+    }
+  </style>
+  <button id="pushy">Push Me</button>
+
+  <script>
+    // Пример 1
+      // Когда нужен правильный 'контекст', стрелочная функция полчает контекст global object
+      const button = document.querySelector('#pushy');
+      // button.addEventListener('click', () => {               // this => Window
+      button.addEventListener('click', function () {            // this => button
+        console.log(this)
+        this.classList.toggle('on');
+      });
+
+    // Пример 2
+      // Когда необходимо использовать метод bind на объекте
+      const person = {
+        points: 23,
+        score: () => {                            // this => Window
+          console.log(this);
+          this.points++
+        },
+        score2: function () {                     // this => person
+          console.log(this);
+          this.points++;
+        }
+      }
+
+    // Пример 3
+      // Когда необходимо добавить prototype метод
+      class Car {
+        constructor(make, colour) {
+          this.make = make;
+          this.colour = colour;
+        }
+      }
+
+      const boomer = new Car('BMW', 'gray');
+      const mers = new Car('Mercedes-benz', 'black');
+
+      // Добавляем метод конструктору Car
+      // Car.prototype.summarize = () => {           // this => Window
+      Car.prototype.summarize = function(){          // this => Car
+        console.log(this);
+        return `This car is a ${this. make} in the colour ${this.colour}`
+      };
+
+    // Пример 4
+      // Когда необходимо получить доступ к объекту arguments
+      // const orderChildren = () => {               // Не имеет собственного объекта arguments
+      const orderChildren = function(){
+        console.log(arguments);
+        const children = Array.from(arguments);
+        const childNumb = (child, numb) => `${child} was child #${numb + 1}`;
+        return children.map(childNumb);
+        console.log(arguments);
+      }
+
+
+  </script>
+</body>
+
+</html>
