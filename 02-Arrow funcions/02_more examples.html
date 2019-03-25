@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow function</title>
+</head>
+<body>
+  <script>
+    
+    const race = '100m Dash';
+    const winners = ['Ali Baba', 'Grizzly Bear', 'Fast Shark']
+
+    // Использую функциональное программирование
+    // Получить массив объектов с именами, названием гонки и позицией в ней
+    let result = (winner, i) => ({name: winner, race, place: i + 1}); // если имя совпадает с именем свойства, можно объединить => race: race -> race
+    const win = winners.map(result);
+    console.table(win);
+
+    const ages = [22,62,45,23,2,68,23,50,70]
+    let olderAge = age => age >= 60;                                  //{return } statment можно опустить
+    const old = ages.filter(olderAge);
+    console.table(old);
+
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow function</title>
+</head>
+<body>
+  <script>
+    // 1.
+      // Стрелочные функции -> анонимные
+
+    // 2.
+      // (param1, param2, …, paramN) => { statements }
+      // (param1, param2, …, paramN) => expression
+      // эквивалентно: (param1, param2, …, paramN) => { return expression; }
+    
+    // 3.
+      // Круглые скобки не обязательны для единственного параметра:
+      // (singleParam) => { statements }
+      // singleParam => { statements }
+    
+    // 4.
+      // Функция без параметров нуждается в круглых скобках:
+      // () => { statements }
+      // () => expression 
+      // Эквивалентно: () => { return expression; }
+
+    // 5.
+      // Не содержит собственный контекст this, а использует значение this окружающего контекста.
+      function Person(){
+        this.age = 0;
+
+        setInterval(() => {this.age++},1000);
+      }
+      
+      let p = new Person();
+      
+    // 6.
+      // Не имеет собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области.
+      let arguments = 55;
+      let arrow = () => arguments;
+      arrow();                                        // => 55
+
+      function arrArg(){
+        let f = (value) => arguments[0] + value;      // => Связываем arguments стрелочной функции с объектом arguments функции arrArg()
+        return f(2);
+      }
+      arrArg(3)                                       // => 5
+
+      // В большинстве случаев лучшей заменой объекта arguments в стрелочных функциях являются rest параметр (...)
+      // The rest parameter syntax allows us to represent an indefinite number of arguments as an array
+
+      function arrRest(){
+        let f = (...args) => args[1];             
+        return f(22,33,44);
+      }
+      arrRest(1);                                     // => 33
+
+
+// ******************************************* ⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️ ************************************************ //
+
+    const name = ["Rafael", "Mike", "Paul"];
+
+    // Вернем массив fullName с добавлением приставки к именам
+    const fullName = name.map(function(name){return `${name} chan`});     // => ["Rafael chan", "Mike chan", "Paul chan"]
+    
+    // Пример с использованием стрелочной функции
+    const fullName2 = name.map((name) => {return `${name} chan`});        // => ["Rafael chan", "Mike chan", "Paul chan"]
+
+    // Если один аргумент, нет необходимости в скобках
+    const fullName3 = name.map(name => {return `${name} chan`});          // => ["Rafael chan", "Mike chan", "Paul chan"]
+    
+    // Если возвращаем выражение, можно опустить фигурные скобки и return
+    const fullName4 = name.map(name => `${name} chan`);                   // => ["Rafael chan", "Mike chan", "Paul chan"]
+
+    // Если отсутствуют аргументы, необходимо ставить пустые фигурные скобки
+    const fullName5 = name.map(() => `Some name chan`);                   // => ["Some name chan", "Some name chan", "Some name chan"]
+
+    // Вызов анонимной стрелочной функции
+    const greeting = (name) => alert(`Hello ${name}`);
+    greeting('Rafael');
+
+console.log(fullName5)
+  </script>
+</body>
+</html>
