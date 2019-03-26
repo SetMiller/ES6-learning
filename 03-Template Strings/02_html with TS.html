@@ -7,8 +7,8 @@
 </head>
 
 <body>
-
   <script>
+
     const person = {
       name: 'Rafael',
       job: 'Web Developer',
@@ -20,7 +20,7 @@
     const text = "Hello,\
       how are you?\
       ";
-    document.body.innerHTML = text
+    // document.body.innerHTML = text
 
     // ES6 вариант при помощи оператора ``
     const markup = `
@@ -33,7 +33,7 @@
         <p class="bio">${person.bio}</p>
       </div>
     `;
-    // document.body.innerHTML = markup;
+    document.body.innerHTML = text + markup;
 
   </script>
 </body>

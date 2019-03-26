@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+  <style>
+    .hl {
+      background: rgb(199, 211, 148);
+      font-style: italic;
+      font-size: 20px;
+    }
+  </style>
+<body>
+  <script>
+
+    // Возможность поменять стиль у template literals(шаблона литералов) или template strings(шаблона строк)
+    // Создаем новую функцию, которая принимает аргументы ввиде массива строк и отдельных значений от подстановки ${}
+    // При этом массив строк всегда на 1 элемент больше, чем количество аргументов из ${} 🔥🔥🔥🔥
+    // stringsArr: (4) ["My dog's name is ", " and he is ", " years old ", "", raw: Array(4)]
+    // args: (3) ["Boomer", 10, "yeah"]
+    function styleChange(stringsArr, ...args){
+      // Вариант 1
+      // let str = '';
+      // stringsArr.forEach((value, index) => {str += value + <span class="hl">(args[index] || '')</span>});
+      
+      // Вариант 2
+      let str = stringsArr.map((value, index) => `${value} <span class="hl">${args[index] || ''}</span>`).join('');
+      return str;
+    };
+
+    const name = 'Boomer 🐶';
+    const age = 10;
+    const insert = 'yeah 😄';
+    // Располагаем имя функции перед шаблонным литералом, тем самым браузер разбивает все содержимое
+    // на единый массив строк и отдельные значения из подстановки ${} и передает их в качестве аргументов в функцию
+    // arguments.length -> 3 (strings.array, ${name}, ${age})
+    const sentence = styleChange`My dog's name is ${name} and he is ${age} years old, ${insert}`;
+    // document.body.innerHTML = markup;
+    document.body.innerHTML = sentence;
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+
+<body>
+  <script>
+    
+    const dogs = [
+      {name: 'Boomer', age: 2},
+      {name: 'Termy', age: 6},
+      {name: 'Spoocky', age: 3},
+    ];
+
+    // Что если у нас есть массив объектов и нам потребуется перебрать его и получить список по каждому объекту?
+    // Случай 1 - ручной вариант перебора 🤔
+    const example1 = `
+      <ul class="dogs"> 
+        <li>${dogs[0].name} is a ${dogs[0].age} years old.</li>
+      </ul>
+    `
+    
+    // Случай 2 - перебор массива с помощью метода .map()
+    const example2 = `
+      <ul class="dogs"> 
+        ${dogs.map(dog => `<li>${dog.name} is a ${dog.age} years old.</li>`)    // .map() вернет массив разделенный запятыми
+              .join('')}                                                     
+      </ul>
+    `
+    document.body.innerHTML = example1 + example2;
+
+  </script>
+</body>
+
+</html>

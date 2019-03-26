@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+  
+<body>
+  <script>
+
+    const song = {
+      name: 'Dying to live',
+      artist: 'Tupac',
+      featuring: 'Biggie Smalls',
+    };
+
+  // Используя тернарный оператор можно выполнить проверку наличия свойства в объекте
+  // и при его наличии вывести требуемое значение
+    const markup = `
+      <div class="song">
+        <p>
+          ${song.name} - ${song.artist}
+          ${song.featuring ? `(Featuring ${song.featuring})` : ''} 
+        </p>
+      </div>
+    `;
+  // или вместо строки 24 -> ${`(Featuring ${song.featuring})` || ''}
+
+    document.body.innerHTML = markup;
+
+  </script>
+</body>
+
+</html>

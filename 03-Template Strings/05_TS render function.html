@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+  
+<body>
+  <script>
+
+    // Несколько более сложный пример
+    // Что если нам потребуется вывести списоком массив ключевых слов, являющихся свойством объекта
+    const beer = {
+      name: 'Belgian Wit',
+      brewery: `Steam Whistle Brewery`,
+      keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+    };
+
+    // Решение задачи
+    // Добавим функцию, которая будет возвращать ненумерованный список элементов массива
+    function renderKeywords(objPropArr){
+      return `
+      <ul>
+        ${objPropArr.map(value => `<li>${value}</li>`).join('')}
+      </ul>
+    `
+    }
+    // Вызовем функцию и передадим в качестве аргумента массив из свойства beer.keywords
+    const markup = `
+      <div class="beer">
+          <h2>${beer.name}</h2>
+          <p class="brewery">${beer.brewery}</p>
+          ${renderKeywords(beer.keywords)}
+      </div>
+    `;   
+    document.body.innerHTML = markup;
+
+  </script>
+</body>
+
+</html>
