@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+ 
+<body>
+
+<div class="bio">
+
+</div>
+
+  <script>
+
+    // Что если нам необходимо добавить всплывающую подсказку при наведении на участок текста?
+    // Мы можем использовать такой же подход с функцией как в предыдущем уроке!
+    const dict = {
+      HTML: 'Hyper Text Markup Language',
+      CSS: 'Cascading Style Sheets',
+      JS: 'JavaScript',
+    }
+
+    // Получаем массив строк и отдельные значения от подстановки ${}
+    // stringsArr: (6) ["Hello! My name is ", " ", " and I love to code ", ", ", " and ", ".", raw: Array(6)]
+    // args: (5) ["Rafael", "Solomko", "HTML", "CSS", "JavaScript"]
+    function addAbbreviation(stringsArr, ...args){
+      // Получаем массив с обернутыми в тэг <abbr> с атрибутом title="" значениями ...args
+      // ["Rafael", "Solomko", "<abbr title="Hyper Text Markup Language">HTML</abbr>", 
+      // "<abbr title="Cascading Style Sheets">CSS</abbr>", "<abbr title="JavaScript">JS</abbr>"]
+      const abbreviation = args.map(value => {
+        // Ищем совпадения с свойствами объекта dict и оборачиваем их в тэг <abbr> с атрибутом title=""
+        if (dict[value]) {
+          return `<abbr title="${dict[value]}">${value}</abbr>`
+        };
+        // Если совпадений нет, возвращаем значение ...args ('Rafael', 'Solomko')
+        return value;
+      });
+      // Собираем все данные в одну строку с помощью метода .reduce()
+      return stringsArr.reduce((previousValue, currentValue, index) => {
+        // Берем значения из массива stringsArr и abbreviation и объединяем их
+        return  `${previousValue}${currentValue}${abbreviation[index] || ''}`
+      }, '');
+    }
+
+    const first = 'Rafael';
+    const last = 'Solomko';
+    const sentence = addAbbreviation`Hello! My name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}.`;
+
+    const bio = document.querySelector('.bio');
+    const p = document.createElement('p');
+    p.innerHTML = sentence;
+    bio.appendChild(p);
+
+  </script>
+</body>
+
+</html>
