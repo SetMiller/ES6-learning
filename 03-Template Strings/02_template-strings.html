@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+
+<body>
+
+  <script>
+    const person = {
+      name: 'Rafael',
+      job: 'Web Developer',
+      city: 'Saint-Petersburg',
+      bio: 'Rafael is a really cool guy that loves to learn more about web development!'
+    }
+
+    // Старый способ создания string переменной с информаций в нескольких строках 
+    const text = "Hello,\
+      how are you?\
+      ";
+    document.body.innerHTML = text
+
+    // ES6 вариант при помощи оператора ``
+    const markup = `
+      <div class="person">
+        <h2>
+          ${person.name}
+          <span class="job">${person.job}</span>
+        </h2>
+        <p class="location">${person.city}</p>
+        <p class="bio">${person.bio}</p>
+      </div>
+    `;
+    // document.body.innerHTML = markup;
+
+  </script>
+</body>
+
+</html>
