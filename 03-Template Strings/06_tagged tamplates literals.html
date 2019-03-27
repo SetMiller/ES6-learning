@@ -21,13 +21,22 @@
     // stringsArr: (4) ["My dog's name is ", " and he is ", " years old ", "", raw: Array(4)]
     // args: (3) ["Boomer", 10, "yeah"]
     function styleChange(stringsArr, ...args){
+      
       // Вариант 1
-      // let str = '';
-      // stringsArr.forEach((value, index) => {str += value + <span class="hl">(args[index] || '')</span>});
+      let str1 = '';
+      stringsArr.forEach((value, index) => {str1 += `${value} <span class="hl">${args[index] || ''}</span>`});
       
       // Вариант 2
-      let str = stringsArr.map((value, index) => `${value} <span class="hl">${args[index] || ''}</span>`).join('');
-      return str;
+      let str2 = stringsArr.map((value, index) => `${value} <span class="hl">${args[index] || ''}</span>`).join('');
+
+      // Вариант 3 
+      let str3 = stringsArr.reduce((prevValue, curentValue, index) => {
+        return `${prevValue}${curentValue}<span class="hl">${args[index] || ''}</span>`
+      }, '');
+
+      return `${str1}<br/>
+      ${str2}<br/>
+      ${str3}`;
     };
 
     const name = 'Boomer 🐶';
