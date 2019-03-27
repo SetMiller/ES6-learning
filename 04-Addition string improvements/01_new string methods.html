@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+<body>
+  <script>
+
+  const course = 'RFB2';
+  const flightNumber = '20-AC2018-jz';
+  const accountNumber = '825242631RT0001';
+
+  const make = 'BMW';
+  const model = 'x5';
+  const colour = 'Royal Blue';
+
+  // Справочная информация -> https://www.ecma-international.org/ecma-262/#sec-intro
+  
+  // .startsWith()
+  // 21.1.3.20 String.prototype.startsWith ( searchString [ , position ] )
+  // Возвращает true или false при совпадении фразы с учетом регистра 🔥🔥🔥
+  course.startsWith('R');                // -> true
+  course.startsWith('RFB');              // -> true
+  course.startsWith('RfB');              // -> false
+  course.startsWith('B2', 2);            // -> true
+
+  // .endsWith()
+  // 21.1.3.6 String.prototype.endsWith ( searchString [ , endPosition ] )
+  // Возвращает true или false при совпадении фразы с учетом регистра 🔥🔥🔥
+  flightNumber.endsWith('-jz');               // -> true
+  flightNumber.endsWith('-Jz');               // -> false
+  flightNumber.endsWith('AC2018', 9);         // -> true
+
+  // .includes()
+  // 21.1.3.7 String.prototype.includes ( searchString [ , position ] )
+  // Возвращает true или false при совпадении фразы с учетом регистра 🔥🔥🔥
+  accountNumber.includes('825242631');        // -> true
+  accountNumber.includes('RT', 9)             // -> true
+  accountNumber.includes('rT', 9)             // -> false
+
+  // .repeat()
+  // 21.1.3.15 String.prototype.repeat ( count )
+  // Пример с созданием отступов слева
+  function leftPad(stringValue, length = 20){
+    return `-> ${'.'.repeat(length - stringValue.length)}${stringValue}`
+  }
+  console.log(leftPad(make));
+  console.log(leftPad(model));
+  console.log(leftPad(colour));
+
+  </script>
+</body>
+</html>
