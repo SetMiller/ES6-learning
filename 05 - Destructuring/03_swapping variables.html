@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in action - swapping variables</title>
+</head>
+<body>
+  <script>
+
+    // Примеры использования деструктурирования в реальной жизни
+    // Допустим нам нужно поменять значения переменных местами
+      let inRing = 'Hulk Hogan';
+      let onSide = 'The Rock';
+
+    // В старом варианте нам бы пришлом использовать дополнительно 
+    // одну переменную для хранения промежуточного результата
+      // let tmp = inRing;
+      // inRing = onSide;
+      // onSide = tmp;
+
+    // Используя же деструктирующий метод, можно поменять значения
+    // переменных без использования дополнительной переменной
+      console.log(inRing, onSide);
+      [ inRing, onSide ] = [ onSide, inRing ];
+      console.log(inRing, onSide);
+
+  </script>
+</body>
+</html>
