@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+  <script>
+    // Давайте теперь посмотрим где нам может быть полезен цикл for ... of
+    // и в чем его принципиальное отличие от остальных подобных циклов
+      const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+      // Пример 1️⃣ -> цикл for
+        // Плюсы
+          // Возможно менять направление перебора
+          // Не видит свойств прототипа
+          // Есть возможность прервать цикл или пропустить элемент
+        // Минусы
+          // Не слишком удобный для чтения синтаксис
+            for (let i = 0; i < cuts.length; i++){
+              console.log(i, cuts[i]);
+            }
+console.clear();
+
+            for (let i = 0; i < cuts.length; i++){
+              // if (i == 2){ break; }               // -> прерываем выполнение
+              if (i == 2){ continue; }               // -> пропускаем элемент массива
+              console.log(i, cuts[i]);
+            }
+console.clear();
+
+      // Пример 2️⃣ -> метод forEach()
+        // Плюсы
+          // Удобный для чтения синтаксис
+          // Не видит свойств прототипа   
+        // Минусы
+          // Возможно менять направление перебора применив метод .reverse() (влияющий на исходный массив)
+          // Нет возможности прервать цикл или пропустить элемент
+            cuts.forEach((value, index) => {
+              console.log(index, value)
+              // if (index == 2){ continue; }        // -> Illegal continue statement
+              // if (index == 2){ break; }           // -> Illegal break statement
+              });
+console.clear();
+
+            // cuts.reverse().forEach((value, index) => {
+            //   console.log(index, value)
+            // });
+// console.clear();
+
+      // Пример 3️⃣ -> цикл for ... in
+        // Плюсы
+          // Удобный для чтения синтаксис
+          // Возможно прервать цикл или пропустить элемент
+        // Минусы
+          // Не видит свойств прототипа   
+          // Возможно менять направление перебора применив метод .reverse()
+            for (let cut in cuts) {
+              console.log(cut)            // -> получим имена свойств объекта(массива), в данном случае номера индексов
+              console.log(cuts[cut])      // -> получим значения элементов
+            }
+            
+            // Однако, что бует если мы добавим в Array.prototype новый метод
+              Array.prototype.args = function(){
+                return 'hello numerable property';
+              }
+
+              for (let cut in cuts) {
+                // -> все верно, цикл перечислит этот метод ƒ (){return 'hello numerable property';}
+                console.log(cuts[cut])      
+              }
+console.clear();           
+            for (let cut in cuts) {
+              // -> и тогда нам придется фильтровать унаследованные свойства
+              if (!cuts.hasOwnProperty(cut)) { continue; }
+              if (cuts[cut] === 'Shank') { continue; }
+              if (cut == 1) { break; }
+              console.log(cuts[cut])      
+            }
+console.clear();  
+
+      // Пример 4️⃣ -> цикл for ... of
+        // Плюсы
+          // Удобный для чтения синтаксис
+          // Возможно прервать цикл или пропустить элемент
+          // Не видит свойств прототипа   
+        // Минусы
+          // Возможно менять направление перебора применив метод .reverse()
+          // Выполняет цикл обхода только для итерируемых объектов (включая Array, Map, Set, объект аргументов и подобных)
+            for (let cut of cuts) {
+                if (cut === 'Shank') { continue; }
+                console.log(cut)      
+            }
+
+  </script>
+</body>
+</html>
