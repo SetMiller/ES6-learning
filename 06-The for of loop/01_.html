@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+  <div class="paragraph">
+    <p>Hi I'm p number 01</p>
+    <p>Hi I'm p number 02</p>
+    <p>Hi I'm p number 03</p>
+    <p>Hi I'm p number 04</p>
+    <p>Hi I'm p number 05</p>
+    <p>Hi I'm p number 06</p>
+    <p>Hi I'm p number 07</p>
+    <p>Hi I'm p number 08</p>
+    <p>Hi I'm p number 09</p>
+    <p>Hi I'm p number 10</p>
+  </div>
+  <!-- /.paragraph -->
+
+  <script>
+
+    // Цикл For ... of
+      // Пример 1️⃣ -> Array object
+        // Оператор for...of выполняет цикл обхода итерируемых объектов 
+        // (включая Array, Map, Set, объект аргументов и подобных), 
+        // вызывая на каждом шаге итерации операторы для каждого значения 
+        // из различных свойств объекта
+          const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+          // Используя цикл в привычном нам виде, после его завершения мы получим значения
+          // для каждого элемента массива
+            for (let cut of cuts){
+              console.log(cut);
+            };
+
+          // Однако что, если мы используем цикл для массива, к которому применен метод
+          // Array.prototype.entries() -> The entries() method returns a new Array Iterator object 
+          // that contains the key/value pairs for each index in the array.
+            for (let cut of cuts.entries()){
+              console.log(cut);                                     // array -> (2) [0, "Chuck"] ...
+              console.log(cut[0], cut[1]);                          // data -> 0 "Chuck" ...
+            };
+
+          // А что если применить деструктирующий метод при обходе cuts.entries()
+            for (let [i, value] of cuts.entries()){
+              console.log(`${value} is on the ${i + 1} position`);
+            };
+console.clear();
+
+      // Пример 2️⃣ -> arguments object
+        // Что если нам необходима функция, которая принимает любое количество аргументов
+        // и выполняет какое-либо действие над ними?
+          function addUpNumber(){
+            console.log(arguments)                                  // -> объект подобный массиву
+            console.log(arguments.length)
+            console.log(arguments.length.callee)                    // -> undefined (количество ожидаемых аргументов)
+          let total = 0
+            // Мы можем использовать цикл for...of для объекта arguments чтобы получить значения его элементов
+            for (const value of arguments){
+              total += value;
+            };
+            return total;
+          };
+
+          const Numb = addUpNumber(2,14,42,5,6,456,23);             // 548
+          console.log(Numb);
+// console.clear()
+
+      // Пример 3️⃣ -> String
+          // Допустим у нас имеется строка, и нам необходимо получить значение каждого ее знака
+            const name = "Rafael Solomko"
+            name.split('').forEach(value => console.log(value));
+          console.log('\n');
+
+          // Либо можно тоже самое сделать с помощью цикла for...of
+            for (const value of name){
+              console.log(value);
+            }
+// console.clear()
+
+      // Пример 4️⃣ -> DOM collections (NodeList) -> __proto__: NodeList
+        // In the context of the DOM, a node is a single point in the node tree. 
+        // Various things that are nodes are the document itself, elements, text, and comments.
+          // Нам необходимо получить значения
+            // Получаем NodeList для выбранных параграфов
+            const par = document.querySelectorAll('p')              
+            console.log(par);                                         //-> NodeList(10) [p, p, p, p, p, p, p, p, p, p]
+            
+            for (const value of par){
+              console.log(value);
+              value.addEventListener('click', function(){
+                console.log(`you clicked to -> ${this.textContent}`);
+              })
+            }
+
+
+  </script>
+</body>
+</html>
