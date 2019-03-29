@@ -19,14 +19,14 @@
           // Не слишком удобный для чтения синтаксис
             for (let i = 0; i < cuts.length; i++){
               console.log(i, cuts[i]);
-            }
+            };
 console.clear();
 
             for (let i = 0; i < cuts.length; i++){
               // if (i == 2){ break; }               // -> прерываем выполнение
               if (i == 2){ continue; }               // -> пропускаем элемент массива
               console.log(i, cuts[i]);
-            }
+            };
 console.clear();
 
       // Пример 2️⃣ -> метод forEach()
@@ -58,17 +58,17 @@ console.clear();
             for (let cut in cuts) {
               console.log(cut)            // -> получим имена свойств объекта(массива), в данном случае номера индексов
               console.log(cuts[cut])      // -> получим значения элементов
-            }
+            };
             
             // Однако, что бует если мы добавим в Array.prototype новый метод
               Array.prototype.args = function(){
                 return 'hello numerable property';
-              }
+              };
 
               for (let cut in cuts) {
                 // -> все верно, цикл перечислит этот метод ƒ (){return 'hello numerable property';}
                 console.log(cuts[cut])      
-              }
+              };
 console.clear();           
             for (let cut in cuts) {
               // -> и тогда нам придется фильтровать унаследованные свойства
@@ -76,7 +76,7 @@ console.clear();
               if (cuts[cut] === 'Shank') { continue; }
               if (cut == 1) { break; }
               console.log(cuts[cut])      
-            }
+            };
 console.clear();  
 
       // Пример 4️⃣ -> цикл for ... of
@@ -84,14 +84,37 @@ console.clear();
           // Удобный для чтения синтаксис
           // Возможно прервать цикл или пропустить элемент
           // Не видит свойств прототипа   
+          // Возможность применить диструктирующий метод для получения значений элементов
         // Минусы
           // Возможно менять направление перебора применив метод .reverse()
           // Выполняет цикл обхода только для итерируемых объектов (включая Array, Map, Set, объект аргументов и подобных)
             for (let cut of cuts) {
                 if (cut === 'Shank') { continue; }
                 console.log(cut)      
-            }
+            };
+console.clear(); 
 
+            for (let [index, value] of cuts.entries()) {
+                if (value === 'Shank') { continue; }
+                console.log(index, value)      
+            };
+console.clear(); 
+
+              // Но что нам делать, если очень хочется применить данный цикл к объекту?
+                const person = {
+                  first: 'Rafael',
+                  last: 'Solomko',
+                  country: 'Russia',
+                  city: 'Saint-Petersburg',
+                  twitter: 'dont have',
+                };
+
+                  // метод Object.keys()
+                    for (let item of Object.keys(person)) {
+                      if (person[item] === 'Russia') { continue; }
+                      console.log(`${item}: ${person[item]}`)      
+                    }; 
+      
   </script>
 </body>
 </html>
