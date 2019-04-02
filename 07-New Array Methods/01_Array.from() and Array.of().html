@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Array Methods</title>
+</head>
+  <div class="people">
+    <p>Rafael</p>
+    <p>Sam</p>
+    <p>Woolfy</p>
+  </div>
+<body>
+  <script>
+    // Array.from()
+    // 22.1.2.1 Array.from ( items [ , mapfn [ , thisArg ] ] )
+    // When the "from" method is called with argument items and optional arguments "mapfn" and "thisArg"
+      // Пример 1️⃣ 
+          const people = document.querySelectorAll('.people p');                              
+        // В данном случае мы получаем объект подобный массиву -> NodeList(3) [p, p, p]
+        // И если попытаться применить методы массива к нему, то будет получена ошибка people.map is not a function
+        // И чтобы привести объект подобный массиву к массиву, можно использовать метод Array.from()
+          const peopleArray = Array.from(people);                                               // ->__proto__: Array(0)
+          const names = peopleArray.map(value => value.textContent);                            // -> ["Rafael", "Sam", "Woolfy"]
+
+        // Однако так как в качестве аргумента в Array.from можно передать .map() функцию, то данный пример можно упростить
+          function arrFromMap(value){
+            console.log(value)
+            return value.textContent;
+          }
+          const peopleArray2 = Array.from(people, arrFromMap)                                   // -> ["Rafael", "Sam", "Woolfy"]
+
+      // Пример 2️⃣ -> а давайте попробуем изменить пример 2️⃣ из урока 01_for of loop intro
+        // У нас имеется функция, которая принимает любое количество аргументов и суммирует их 
+          function summAll(){
+            // В таком варианте мы получим ошибку, тк arguments -> объект подобный массиву, не массив 🔥🔥🔥
+              // console.log(arguments);
+              // return arguments.reduce((prevValue, currValue) => prevValue + currValue, 0)
+            // В этом случае как и в прошлом на помощь нам приходит метод Array.from
+              const nums = Array.from(arguments);
+              return nums.reduce((prevValue, currValue) => prevValue + currValue, 0)
+          }
+          summAll(20,14,2425,6,3437,84,562,25,231)
+
+    // Array.of()
+    // 22.1.2.3 Array.of ( ...items )
+      // Пример 
+        // Данный метод возвращает массив из любого количества аргументов, переданных ему
+          const varArr = Array.of(20,14,2425,6,3437,84,562,25,231);              // -> [20, 14, 2425, 6, 3437, 84, 562, 25, 231]
+
+
+  </script>
+</body>
+</html>
