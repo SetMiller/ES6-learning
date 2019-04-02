@@ -10,5 +10,6 @@ In this repo I'll learn more about `ES6 new features`.
 4. [Addition string improvements](https://github.com/SetMiller/ES6-learning/tree/master/04-Addition%20string%20improvements)
 5. [Destructuring](https://github.com/SetMiller/ES6-learning/tree/master/05-Destructuring)
 6. [The for ... of loop](https://github.com/SetMiller/ES6-learning/tree/master/06-The%20for%20of%20loop)
+7. [New Array Methods](https://github.com/SetMiller/ES6-learning/tree/master/07-New%20Array%20Methods)
 
 # 
