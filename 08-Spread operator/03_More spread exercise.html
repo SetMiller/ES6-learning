@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>More spread exercise</title>
+  
+</head>
+<body>
+
+  <div class="people">
+    <p>Rafael</p>
+    <p>Sam</p>
+    <p>Woolfy</p>
+  </div>
+
+  <script>
+    
+    // Пример 1️⃣ -> получаем массив со значениями параграфов используя спрэд оператор
+      // Тк Nodelist итерабельный объект, то для него можно использовать спрэд оператор
+        // const people = Array.from(document.querySelectorAll('.people p')); 
+        const people = [...document.querySelectorAll('.people p')];
+        console.log(people)
+        const names = people.map(value => value.textContent)
+        console.log(names)
+    
+    // Пример 2️⃣ -> получаем массив используя значение свойства объекта и спрэд оператор
+        const deepDish = {
+            pizzaName: 'Deep Dish',
+            size: 'Medium',
+            ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese'],
+        }
+
+        const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+        console.log(shoppingList)
+
+    // Пример 3️⃣ -> удаляем из массива элемент по id
+      const comments = [
+        { id: 209384, text: 'I love your dog!' },
+        { id: 523423, text: 'Cuuute! 🐐' },
+        { id: 632429, text: 'You are so dumb' },
+        { id: 192834, text: 'Nice work on this wes!' },
+      ];
+
+      const id = 632429;
+      const commentIndex = comments.findIndex(value => value.id === id);
+      const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+
+      // Вариант просто так, попробовал найти другой способ
+      const newComments2 = comments.map(value => value.id === id ? '' : value ).sort().slice(1)
+
+      console.table(newComments2)
+  </script>
+</body>
+</html>

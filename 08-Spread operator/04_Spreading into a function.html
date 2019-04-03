@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Spreading into a function</title>
+  
+</head>
+<body>
+
+  
+
+  <script>
+    
+    // Допустим нам нужно взять второй массив и добавить в конец первого
+      const inventors = ['Einstein', 'Newton', 'Galileo'];
+      const newInventors = ['Musk', 'Jobs']
+      // изменяет исходный массив
+        // inventors.push(...newInventors)
+        // console.log(inventors);
+      
+        // inventors.push.apply(inventors, newInventors)               // -> вернет количество элементов
+        // console.log(inventors)                                      
+
+      // создает новый массив
+        console.log([].concat(inventors,newInventors))
+        console.log([...inventors, ...newInventors])
+        console.log(inventors.concat(newInventors))
+    
+      // Вариант функционального программирования:
+        function arrCombine1(arr1, arr2){
+          return [].concat(arr1,arr2)
+        }
+
+        function arrCombine2(arr1, arr2){
+          return [...arr1, ...arr2]
+        }
+
+        function arrCombine3(arr1, arr2){
+          return arr1.concat(arr2)
+        }
+
+        const allInventors = [inventors, newInventors]
+        arrCombine2(...allInventors)
+
+        arrCombine2(...[inventors, newInventors])
+
+  </script>
+</body>
+</html>

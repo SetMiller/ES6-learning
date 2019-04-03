@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Rest param</title>
+  
+</head>
+<body>
+
+  <script>
+    // Пример 1️⃣
+      function converCurrency(rate, tax, tip, ...amounts) {
+        console.log(rate, tax, tip, amounts)
+        // return amounts.map(value => value * rate);
+      }
+
+      const amounts = converCurrency(1.2, 0.3, 0.2, 10, 20, 30);
+      console.log(amounts)
+
+    // Пример 2️⃣
+      const runner = ['Rafael Solomko', 155, 5.5, 5, 3, 6]
+      const [name, id, ...runs] = runner;
+      console.log(name, id, runs)
+
+      const team = ['Rafael', 'Jack', 'Tom', 'Sarah', 'Nancy'];
+      const [lead, assistant, ...players] = team;
+      console.log(lead, assistant, players);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread operator</title>
+</head>
+<body>
+  <script>
+
+    // Spread syntax применяется к каждому элементу в итерабельном объекте (те, к которым можно применить for ... of цикл)
+      const featured = ['Deep Dish', 'Peperoni', 'Hawaiian'];
+      const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+      const deepDish = {
+        pizzaName: 'Deep Dish',
+        size: 'Medium',
+        ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese'],
+      }
+
+    // Если спрэд оператор применить к строке, он разобьет ее на отдельные элементы
+      const pizzaVeg = 'vegetarian'; 
+      
+      const pizzas = [...featured, pizzaVeg, ...specialty];
+
+    // Допустим необходимо передать аргументы в функцию из массива
+      function summ(x, y, z){
+        return x + y + z
+      }
+      const arr = [10, 15, 20];
+
+      console.log(summ.apply(null, arr));                               // -> 45
+      console.log(summ(...arr));                                        // -> 45
+      console.log(summ(...[-10], ...arr))                               // -> 15
+
+    // Так же спрэд оператор подходит для копирования массивов и объектов, обязательно указывать что литералы
+      const pizzaMenu = [...featured];
+      const pizzaIngr = {...deepDish};
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Array Methods</title>
+</head>
+<body>
+  <script>
+
+   // Array.some()
+   // 22.1.3.24 Array.prototype.some ( callbackfn [ , thisArg ] )
+   // callbackfn should be a function that accepts three arguments and returns a value that is coercible to the Boolean value true or false. 
+   // some calls callbackfn once for each element present in the array, in ascending order, until it finds one where callbackfn returns true. 
+   // If such an element is found, some immediately returns true. Otherwise, some returns false. 
+   // callbackfn is called only for elements of the array which actually exist; it is not called for missing elements of the array.
+   // 👉callbackfn is called with three arguments: the value of the element, the index of the element, and the object being traversed.👈
+
+      // Допустим нам нужно понять есть ли взрослые в данной группе? 
+         const ages = [32, 15, 19, 12]
+         const adultPresent = ages.some(value => value >= 18 )                                        // -> true
+     
+   // Array.every()
+   // 22.1.3.5 Array.prototype.every ( callbackfn [ , thisArg ] )
+   // callbackfn should be a function that accepts three arguments and returns a value that is coercible to the Boolean value true or false. 
+   // every calls callbackfn once for each element present in the array, in ascending order, until it finds one where callbackfn returns false. 
+   // If such an element is found, every immediately returns false. Otherwise, if callbackfn returned true for all elements, every will return true. 
+   // callbackfn is called only for elements of the array which actually exist; it is not called for missing elements of the array.
+   // 👉callbackfn is called with three arguments: the value of the element, the index of the element, and the object being traversed.👈
+
+      // Допустим нам нужно понять все ли достаточно взрослые, чтобы употреблять алкоголь
+         const adultAll = ages.every(value => value >= 21 )                                           // -> false
+       
+  </script>
+</body>
+</html>
