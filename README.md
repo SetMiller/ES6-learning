@@ -11,6 +11,8 @@ In this repo I'll learn more about `ES6 new features`.
 5. [Destructuring](https://github.com/SetMiller/ES6-learning/tree/master/05-Destructuring)
 6. [The for ... of loop](https://github.com/SetMiller/ES6-learning/tree/master/06-The%20for%20of%20loop)
 7. [New Array Methods](https://github.com/SetMiller/ES6-learning/tree/master/07-New%20Array%20Methods)
-8. [Spread operatop](https://github.com/SetMiller/ES6-learning/tree/master/08-Spread%operator)
+8. [Spread operatop](https://github.com/SetMiller/ES6-learning/tree/master/08-Spread%20operator)
+9. [Object literal upgrades](https://github.com/SetMiller/ES6-learning/tree/master/09-Object%20literal%20upg)
+10. [Promises](https://github.com/SetMiller/ES6-learning/tree/master/10-Promises)
 
 # 

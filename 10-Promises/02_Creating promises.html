@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Creating promises</title>
+
+</head>
+
+<body>
+
+  <script>
+    const forFetch = [{
+          "id": 4132,
+          "date": "2018-12-07T11:02:49",
+          "date_gmt": "2018-12-07T16:02:49",
+          "guid": {
+            "rendered": "https:\/\/wesbos.com\/?p=4132"
+          },
+          "modified": "2018-12-07T11:02:49",
+          "modified_gmt": "2018-12-07T16:02:49",
+          "slug": "drone-javascript",
+          "status": "publish",
+          "type": "post",
+          "link": "https:\/\/wesbos.com\/drone-javascript\/",
+          "title": {
+            "rendered": "Flying a DJI Tello Drone with React and Node.js"
+          },
+          "content": {
+            "rendered": "<p>Hey Folks! Kind of a fun one here today. I wrote some JavaScript to fly a DJI Drone.<\/p>\n<p>IBM is giving away 2,000 DJI Tello drones as part of a challenge and I made this video to help them promote it. This is the fun kind of stuff that originally got me excited about programming so I&#8217;d encourage you to try this out!<\/p>\n<ul>\n<li>Enter the giveaway at <a href=\"https:\/\/developer.ibm.com\/contest\/?cm_mmc=ibmdev-_-drone-_-youtube-_-wesbos\">https:\/\/developer.ibm.com\/contest<\/a> (US\/ Canada Only \u2014 sorry!)<\/li>\n<li>More details about the challenge at <a href=\"https:\/\/developer.ibm.com\/blogs\/2018\/11\/12\/win-a-drone-program-a-drone-change-the-world\/\">https:\/\/developer.ibm.com\/blogs\/2018\/11\/12\/win-a-drone-program-a-drone-change-the-world\/<\/a><\/li>\n<\/ul>\n<p>All the code is available here: <a href=\"https:\/\/github.com\/wesbos\/javascript-drones\">https:\/\/github.com\/wesbos\/javascript-drones<\/a> along with a list of software and hardware used.<\/p>\n<p><span class=\"embed-youtube\" style=\"text-align:center; display: block;\"><iframe class='youtube-player' type='text\/html' width='640' height='390' src='https:\/\/www.youtube.com\/embed\/JzFvGf7Ywkk?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'><\/iframe><\/span><\/p>\n<p><span class=\"embed-youtube\" style=\"text-align:center; display: block;\"><iframe class='youtube-player' type='text\/html' width='640' height='390' src='https:\/\/www.youtube.com\/embed\/ozMwRq-IT2w?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'><\/iframe><\/span><\/p>\n<p>Enjoy!<\/p>\n",
+            "protected": false
+          },
+          "excerpt": {
+            "rendered": "<p>Hey Folks! Kind of a fun one here today. I wrote some JavaScript to fly a DJI Drone. IBM is giving away 2,000 DJI Tello drones as part of a challenge and I made this video to help them promote &hellip; <a href=\"https:\/\/wesbos.com\/drone-javascript\/\">Continue reading <span class=\"meta-nav\">&rarr;<\/span><\/a><\/p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 4134,
+          "comment_status": "open",
+          "ping_status": "open",
+          "sticky": false,
+          "template": "",
+          "format": "standard",
+          "meta": [],
+          "categories": [44],
+          "tags": [],
+          "_links": {
+            "self": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts\/4132"
+            }],
+            "collection": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts"
+            }],
+            "about": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/types\/post"
+            }],
+            "author": [{
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/users\/1"
+            }],
+            "replies": [{
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/comments?post=4132"
+            }],
+            "version-history": [{
+              "count": 1,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts\/4132\/revisions"
+            }],
+            "predecessor-version": [{
+              "id": 4135,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts\/4132\/revisions\/4135"
+            }],
+            "wp:featuredmedia": [{
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/media\/4134"
+            }],
+            "wp:attachment": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/media?parent=4132"
+            }],
+            "wp:term": [{
+              "taxonomy": "category",
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/categories?post=4132"
+            }, {
+              "taxonomy": "post_tag",
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/tags?post=4132"
+            }],
+            "curies": [{
+              "name": "wp",
+              "href": "https:\/\/api.w.org\/{rel}",
+              "templated": true
+            }]
+          }
+        }, {
+          "id": 4103,
+          "date": "2018-03-13T11:35:48",
+          "date_gmt": "2018-03-13T15:35:48",
+          "guid": {
+            "rendered": "http:\/\/wesbos.com\/?p=4103"
+          },
+          "modified": "2018-03-19T13:09:05",
+          "modified_gmt": "2018-03-19T17:09:05",
+          "slug": "react-context",
+          "status": "publish",
+          "type": "post",
+          "link": "https:\/\/wesbos.com\/react-context\/",
+          "title": {
+            "rendered": "React&#8217;s New Context API Explained"
+          },
+          "content": {
+            "rendered": "<p>Hey Folks! React 16.3 has a new Context API which makes accessing data and functions anywhere in your application a snap. If you ever find yourself passing data down via props 4-5 levels deep, context might be what you are looking for.<\/p>\n<p>Enjoy!<\/p>\n<p><span class=\"embed-youtube\" style=\"text-align:center; display: block;\"><iframe class='youtube-player' type='text\/html' width='640' height='390' src='https:\/\/www.youtube.com\/embed\/XLJN4JfniH4?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'><\/iframe><\/span><\/p>\n<p>Code Examples available at https:\/\/github.com\/wesbos\/React-Context<\/p>\n",
+            "protected": false
+          },
+          "excerpt": {
+            "rendered": "<p>Hey Folks! React 16.3 has a new Context API which makes accessing data and functions anywhere in your application a snap. If you ever find yourself passing data down via props 4-5 levels deep, context might be what you are &hellip; <a href=\"https:\/\/wesbos.com\/react-context\/\">Continue reading <span class=\"meta-nav\">&rarr;<\/span><\/a><\/p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 4104,
+          "comment_status": "open",
+          "ping_status": "open",
+          "sticky": false,
+          "template": "",
+          "format": "standard",
+          "meta": [],
+          "categories": [44],
+          "tags": [],
+          "_links": {
+            "self": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts\/4103"
+            }],
+            "collection": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts"
+            }],
+            "about": [{
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/types\/post"
+            }],
+            "author": [{
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/users\/1"
+            }],
+            "replies": [{
+              "embeddable": true,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/comments?post=4103"
+            }],
+            "version-history": [{
+              "count": 2,
+              "href": "https:\/\/wesbos.com\/wp-json\/wp\/v2\/posts\/4103\/revisions"
+            }]}}]
+
+      // Давайте создадим наш собственный промис
+        // В промис передаются 2 функции (resolve, reject)
+          // resolve -> выполняется в случае удачи -> обрабатывается методом .then()
+          // reject -> выполняется в случае неудачи -> обрабатывается методом .catch()
+          const p = new Promise((resolve, reject) => {
+            // устанавливаем задержку на выполнение функции
+            setTimeout(() => {
+              resolve(forFetch)
+            }, 1000)
+            setTimeout(() => {
+              // reject('Raf or not? ;)')             // -> в данном случае ошибка будет указывать на строку 29, где была поймана
+              reject(Error(
+                'Raf or not? ;)'))                    // -> чтобы получить правильный номер строки, необходимо обернуть ответ в Error()
+            }, 1000)
+
+          })
+
+          p
+            // .then(promise => promise.json())       // -> в контексте нашего примера мы сразу получаем .json() формат
+            .then(data => console.log(data))
+            .catch(err => console.error(err))         // -> обрабатывается, только в случае неудачи у .then()
+  </script>
+</body>
+
+</html>

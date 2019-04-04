@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Promises intro!</title>
+  
+</head>
+<body>
+
+  <script>
+    
+    // Promise Объект Promise (обещание) используется для отложенных и асинхронных вычислений
+    // 25.6 Promise Objects
+      // A Promise is an object that is used as a placeholder for the eventual results of a deferred (and possibly asynchronous) computation.
+      // Any Promise object is in one of three mutually exclusive states: fulfilled, rejected, and pending
+        // Метод fetch() принимает один обязательный аргумет —  путь к данным, которые вы хотите получить. 
+        // Он возвращает promise, который разрешается в (Response) независимо от того, был ли запрос удачным. 
+        // Вы можете также передать во втором аргументе необязательный объект с указанием опций (см. Request.)
+
+          // console.log('Going to fetch the larest posts from Wes\' Blog');
+          // const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts');      
+          // console.log('Done!');
+          // console.log(posts)
+          postsPromise
+                  .then(promise => promise.json())                                  // слушаем ответ и далее обрабатываем его 
+                  .then(data => data)
+                  .catch(err => console.error(err))                                                          // срабатывает в случае отклонения обращения
+  </script>
+</body>
+</html>
