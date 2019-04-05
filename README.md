@@ -14,5 +14,7 @@ In this repo I'll learn more about `ES6 new features`.
 8. [Spread operatop](https://github.com/SetMiller/ES6-learning/tree/master/08-Spread%20operator)
 9. [Object literal upgrades](https://github.com/SetMiller/ES6-learning/tree/master/09-Object%20literal%20upg)
 10. [Promises](https://github.com/SetMiller/ES6-learning/tree/master/10-Promises)
+11. [Inheritance review](https://github.com/SetMiller/ES6-learning/tree/master/11-Inheritance%20review)
+12. [Generators](https://github.com/SetMiller/ES6-learning/tree/master/12-Generators)
 
 # 

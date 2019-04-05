@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+  <script>
+    
+    // Допустим нам необходимо сделать несколько вызовов одного и того же действия
+      // Для этих целей нам пригодится функция - генератор
+        function* listPeople() {
+          yield 'Rafael';
+          yield 'Sam';
+          yield 'Piter';
+        }
+
+      // Чтобы ее вызвать, нам потребуется присвоить ее значение переменной и через нее вызывать
+        const people = listPeople()
+
+      // Далее выполняем вызов функции
+        // Итогом вызова будет объект, чтобы извлечь само значение, достаточно добавить people.next().value
+        people.next()                               // -> {value: "Rafael", done: false}
+        people.next()                               // -> {value: "Sam", done: false}
+        people.next()                               // -> {value: "Piter", done: false}
+        people.next()                               // -> {value: undefined, done: true}
+
+    // Пример со счетчиком на определенное количество раз
+      function* count(){
+        // В данном случае функция является своего рода замыканием и может получать значение переменной прошлого вызова
+        let i = 0;
+        i++;
+        yield i;
+        i++;
+        yield i;
+        i++;
+        yield i;
+      }
+    
+      const makeCount = count()
+
+    // Еще один пример с перебором массива
+      const inventors = [
+        { first: 'Albert', last: 'Einstein', year: 1879 },
+        { first: 'Isaac', last: 'Newton', year: 1643 },
+        { first: 'Galileo', last: 'Galilei', year: 1564 },
+        { first: 'Marie', last: 'Curie', year: 1867 },
+        { first: 'Johannes', last: 'Kepler', year: 1571 },
+        { first: 'Nicolaus', last: 'Copernicus', year: 1473 },
+        { first: 'Max', last: 'Planck', year: 1858 },
+      ];
+
+      // Благодаря генератору, мы можем пройти по каждому вызову функции отдельными шагами
+        function* loop(arr){
+          console.log(arr)
+          for (let value of inventors) {
+            yield value
+          }
+        }
+
+        const makeLoop = loop(inventors); 
+      // makeLoop.next().value
+
+  </script>
+</body>
+</html>

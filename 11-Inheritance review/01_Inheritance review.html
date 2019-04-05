@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance review</title>
+</head>
+<body>
+  <script>
+    // Пример 1️⃣ -> ES3 вариант
+      // Классы и наследование 
+        // Допустим у нас есть класс - Dog
+        // Он принимает имя и породу
+          function Dog(name, breed){
+            this.name = name;
+            this.breed = breed;
+          }
+        // Теперь давайте создадим новую собаку 
+          const woolfy = new Dog('woolfy', 'King Charles')
+          const spooky = new Dog('spooky', 'Golden Doodle')
+
+        // Давайте добавим собаке новые способности  
+          Dog.prototype.bark = function(){
+            console.log(`Bark Bark 🐟! '${this.name}' want this fish!!!`)
+          }
+        
+        // Добавим еще способности
+          Dog.prototype.cuddle = function(){
+            console.log(`I love you owner!`)
+          }
+
+    // Пример 2️⃣ -> ES6 вариант
+      // Class declaration
+        class Dog2 {
+          // Когда мы объявляем новый класс, в обязательном порядке должна присутствовать функция конструктор
+          // Куда передаются входные параметры
+            constructor(name, breed) {
+              this.name = name;
+              this.breed = breed;
+            } // <- запятая не обязательна
+          // Так же мы можем указать необходимые нам методы
+            bark() {
+              console.log(`Bark Bark 🐟! '${this.name}' want this fish!!!`)
+            }
+            cuddle() {
+              console.log(`I love you owner!`)
+            }
+          // Создадим статический метод, который будет доступен только классу Dog, на подобии Array.of()
+            static info() {
+              console.log('This class creates a dog\'s!!')
+            }
+          // Добавим get, в котором будет находится описание класса собаки | вызвать -> (woolfy2.description)
+            get description() {
+              return `${this.name} is a ${this.breed} type of dog`;
+            }
+          // Добавим set, который будет добавлять кличку собаке | вызвать -> (woolfy2.nick ="__")
+            set nickname(value) {
+              this.nick = value.trim()
+            }
+          // Получить обратно ник | вызвать -> (woolfy2.nick)
+            get nickname() {
+              return `${this.nick}`
+            }
+
+        }
+      // Class expression
+        // const dog2 = class {
+
+        // }
+
+        // Теперь давайте создадим новую собаку 
+          const woolfy2 = new Dog2('woolfy', 'King Charles')
+          const spooky2 = new Dog2('spooky', 'Golden Doodle')
+
+
+  </script>
+</body>
+</html>

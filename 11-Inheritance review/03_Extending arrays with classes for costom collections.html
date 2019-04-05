@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Extending arrays with classes for costom collections</title>
+</head>
+<body>
+  <script>
+    // Пример 1️⃣ -> Нам необходимо создать массив - колеекуцию 
+      // Для этого мы берем родителем класс Array и добавляем ему возможность принимать имя
+      class MovieCollection extends Array {
+        // Для передачи всех аргументов вместе используем оператор ...rest
+        constructor(names, ...items) {
+          // Для использования аргументов, используем оператор spread
+          super(...items);
+          // Добавим возможность принимать свойство name
+          this.name = names;
+        }
+        // Добавим метод добавления в коллекцию еще фильмов
+        add(movie) {
+          this.push(movie)
+        }
+        // Добавим метод сортировки фильмов
+        topRated(limit = 10) {
+          // сортироваться будут по количеству звезд и если список более 10 штук, лишнее будет обрезаться,
+          // либо можно будет передать значение лимита по выводу результатов
+            // В данном примере метод .slice() заменяет значение свойства имя на длину возвращаемого массива,
+            // но при этом не удаляет свойство name
+            // Поэтому я использую ...spread оператор чтобы пересобрать массив и уже в нему убрать лишний мусор  
+          return [...this.sort((a, b) => (a.stars > b.stars ? -1 : 1))].slice(0, limit) 
+        }
+      }
+      
+      
+      const movies = new MovieCollection('Wes\'s Fav Movies',
+        { name: 'Bee Movie', stars: 10 },
+        { name: 'Star Wars Trek', stars: 1 },
+        { name: 'Virgin Suicides', stars: 7 },
+        { name: 'King of the Road', stars: 8 }
+      );
+      // Добавим новый фильм в коллекцию
+      movies.add({name: 'Deadpool', stars: 4})  
+
+  </script>
+</body>
+</html>
